@@ -83,18 +83,13 @@ You can visit our `YouTube` video for `ANPR/ALPR` model's performance [here](htt
 ### 2 API Usages
   - Activate the `SDK` by calling the `setActivation` method:
   ```kotlin
-    final _alprsdkPlugin = AlprsdkPlugin();
-    ...
-     await _alprsdkPlugin
-            .setActivation(
-                "o3AfDW+0LAb55qW354xp9ef/Twg1WumIcKaBQLydx+o7+8nuZSo4aL4vVGro3mNCLvo8C2OPNDjZ"
-                "/8k+bvgbf8+QszGqG5ubjZOaREXO0Iw8pSepERy4HrWrS6I9ObjuttMUIRHBFNjIsT3RKH57mNv6"
-                "1IXxewXlIA2oe5Vak/zaddoKKKcSW+iWJWqIa1MxGn8PpUD1riQS9RrO/cwZsiAJU+5+ekkkyP3C"
-                "7eNZGzFfpmkLM55p2F98IMqWHjaMmX0klsNlxE/bdSJD8c2cS/+9DGLqiWb2FHz8FpR6sXjc+eGM"
-                "bNtBd0YxqfAy+oeTVdPyw0E17lj+Hilw4L4C6Q==")
-            .then((value) => facepluginState = value ?? -1);
+    var ret = AlprSdk.setActivation("xxx...")
   ```
-  - Extract plates using the `extractFaces` method:
-  ```dart
-  final plates = await _alprsdkPlugin.extractFaces(path: image.path)
+  - Extract plates using the `extractPlates` method:
+  ```kotlin
+   val alprResult: AlprResult = AlprSdk.process(
+        SDK_IMAGE_TYPE.ULTALPR_SDK_IMAGE_TYPE_RGBA32,
+        nativeBuffer, width.toLong(), height.toLong()
+   )
+   val plates = AlprUtils.extractPlates(alprResult);
   ```
