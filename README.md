@@ -57,7 +57,7 @@ You can visit our `YouTube` video for `ANPR/ALPR` model's performance [here](htt
 [![ANPR/ALPR Demo](https://img.youtube.com/vi/sLBYxgMdXlA/0.jpg)](https://www.youtube.com/watch?v=sLBYxgMdXlA)</br>
 
 ## SDK License
-- The code line below shows how to update SDK with the `license key`: https://github.com/kby-ai/Automatic-License-Plate-Recognition-Flutter/blob/1dbfc414f3386bd4132a333ac3a9b79dff93c213/lib/main.dart#L69-L78
+- The code line below shows how to update SDK with the `license key`: https://github.com/kby-ai/Automatic-License-Plate-Recognition-Android/blob/059b471d20d3392880ace352770f2fd4d43ff515/app/src/main/java/com/kbyai/alpr/MainActivity.kt#L42-L49
 - To request `license key`, please contact us:</br>
 🧙`Email:` contact@kby-ai.com</br>
 🧙`Telegram:` [@kbyai](https://t.me/kbyai)</br>
