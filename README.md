@@ -68,7 +68,7 @@ You can visit our `YouTube` video for `ANPR/ALPR` model's performance [here](htt
 ## About SDK
 
 ### 1. Set up
-#### 1.1 Setting Up ALPR SDK
+#### 1.1 Setting Up `ALPR` SDK
   > Android
   - Copy the SDK(folder `libttvalpr`) to `root` folder in your `Android` project.
   - Add SDK to the project in `settings.gradle`.
