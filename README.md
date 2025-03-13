@@ -53,7 +53,7 @@ The `ALPR` system works in these strides, the initial step is the location of th
 </p>
 
 ## Performance Video
-You can visit our YouTube video for ANPR/ALPR model's performance [here](https://www.youtube.com/watch?v=sLBYxgMdXlA) to see how well our demo app works.</br></br>
+You can visit our `YouTube` video for `ANPR/ALPR` model's performance [here](https://www.youtube.com/watch?v=sLBYxgMdXlA) to see how well our demo app works.</br></br>
 [![ANPR/ALPR Demo](https://img.youtube.com/vi/sLBYxgMdXlA/0.jpg)](https://www.youtube.com/watch?v=sLBYxgMdXlA)</br>
 
 ## SDK License
