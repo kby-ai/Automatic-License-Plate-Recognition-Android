@@ -76,9 +76,21 @@ public class FaceView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (frameSize != null &&  platesMap != null) {
-            float x_scale = this.frameSize.getWidth() / (float)canvas.getWidth();
-            float y_scale = this.frameSize.getHeight() / (float)canvas.getHeight();
+        if (frameSize != null && platesMap != null) {
+            int frameWidth = frameSize.getWidth();   // 1080
+            int frameHeight = frameSize.getHeight(); // 1440
+            int viewWidth = canvas.getWidth();       // 1080
+            int viewHeight = canvas.getHeight();     // 2026
+
+            // Fit-to-height scaling
+            float scale = (float) viewHeight / frameHeight;
+
+            // Scaled frame dimensions
+            float scaledWidth = frameWidth * scale;
+
+            // Horizontal offset (center crop)
+            float offsetX = (viewWidth - scaledWidth) / 2;
+            float offsetY = 0; // height fits perfectly, no vertical offset
 
             for (Map<String, Object> plate : platesMap) {
                 String number = plate.containsKey("number") ? (String) plate.get("number") : "Unknown";
@@ -86,24 +98,24 @@ public class FaceView extends View {
                 float y1 = plate.containsKey("y1") ? ((Number) plate.get("y1")).floatValue() : 0.0f;
                 float x2 = plate.containsKey("x2") ? ((Number) plate.get("x2")).floatValue() : 0.0f;
                 float y2 = plate.containsKey("y2") ? ((Number) plate.get("y2")).floatValue() : 0.0f;
-//                int frameWidth = plate.containsKey("frameWidth") ? ((Number) plate.get("frameWidth")).intValue() : 0;
-//                int frameHeight = plate.containsKey("frameHeight") ? ((Number) plate.get("frameHeight")).intValue() : 0;
 
-//                Log.i("processPlates", "Plate Number: " + number);
-//                Log.i("processPlates", "Bounding Box: (" + x1 + ", " + y1 + ") -> (" + x2 + ", " + y2 + ")");
-//                Log.i("processPlates", "Frame Size: " + frameWidth + "x" + frameHeight);
+                // Apply scale and offset
+                float drawX1 = x1 * scale + offsetX;
+                float drawY1 = y1 * scale + offsetY;
+                float drawX2 = x2 * scale + offsetX;
+                float drawY2 = y2 * scale + offsetY;
 
+                // Draw label
                 textPaint.setStrokeWidth(2);
                 textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-                assert number != null;
-                canvas.drawText(number, (x1 / x_scale) + 10, (y1 / y_scale) - 10, textPaint);
+                canvas.drawText(number, drawX1 + 10, drawY1 - 10, textPaint);
 
+                // Draw rectangle
                 rectPaint.setStrokeWidth(3);
                 rectPaint.setStyle(Paint.Style.STROKE);
-                canvas.drawRect(new Rect((int)(x1 / x_scale), (int)(y1 / y_scale), (int)(x2 / x_scale), (int)(y2 / y_scale)), rectPaint);
+                canvas.drawRect(drawX1, drawY1, drawX2, drawY2, rectPaint);
             }
-        }
-        else {
+        } else {
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         }
     }
