@@ -42,7 +42,6 @@ The `ALPR` system works in these strides, the initial step is the location of th
   | 3        | [LPR - Flutter](https://github.com/kby-ai/Automatic-License-Plate-Recognition-Flutter)    | License Plate Recognition Flutter SDK | Available |
   | 4        | [LPR - C#](https://github.com/kby-ai/Automatic-License-Plate-Recognition-CSharp-.NET)    | License Plate Recognition C# SDK | Available |
   | ➡️        | <b>[LPR - Android](https://github.com/kby-ai/Automatic-License-Plate-Recognition-Android)</b>    | <b>License Plate Recognition Android SDK</b> | <b>Available</b> |
-  | 6        | LPR - iOS    | License Plate Recognition iOS SDK | Developing |
 
 > To get more products, please visit products [here](https://github.com/kby-ai):<br/>
 
