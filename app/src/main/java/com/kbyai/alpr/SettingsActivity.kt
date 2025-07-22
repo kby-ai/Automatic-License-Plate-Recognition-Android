@@ -11,7 +11,7 @@ import androidx.preference.*
 class SettingsActivity : AppCompatActivity() {
 
     companion object {
-        const val DEFAULT_CAMERA_LENS = "front"
+        const val DEFAULT_CAMERA_LENS = "back"
 
         @JvmStatic
         fun getCameraLens(context: Context): Int {
