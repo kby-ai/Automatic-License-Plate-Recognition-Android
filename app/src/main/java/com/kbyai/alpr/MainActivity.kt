@@ -140,9 +140,17 @@ class MainActivity : AppCompatActivity() {
                         typeface = Typeface.DEFAULT_BOLD
                     }
 
+                    val textScorePaint = Paint().apply {
+                        color = Color.WHITE
+                        textSize = 10f
+                        style = Paint.Style.FILL
+                        typeface = Typeface.DEFAULT_BOLD
+                    }
+
                     for(plate in plates) {
                         Log.i("alprEngine", "number: " + plate.getNumber())
                         Log.i("alprEngine", "wrapper: " + plate.getWarpedBox()[0])
+                        Log.i("alprEngine", "recognition confidence: " + plate.getRecognitionConfidence())
                         val e: HashMap<String, Any> = HashMap<String, Any>()
 
                         var x1 = 65536.0f
@@ -209,10 +217,12 @@ class MainActivity : AppCompatActivity() {
                         e.put("frameWidth", bitmap!!.width);
                         e.put("frameHeight", bitmap!!.height);
                         e.put("number", plate.getNumber());
+                        e.put("score", plate.getRecognitionConfidence())
                         platesMap.add(e)
 
                         canvas.drawRect(x1, y1, x2, y2, paint)
                         canvas.drawText(plate.getNumber(), x1, y1 - 10, textPaint)
+                        canvas.drawText(plate.getRecognitionConfidence().toString(), x1, y2 + 20, textScorePaint)
                     }
 
                     imgView.setImageBitmap(mutableBitmap)

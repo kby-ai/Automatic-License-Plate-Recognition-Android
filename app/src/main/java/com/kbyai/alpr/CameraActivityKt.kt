@@ -203,6 +203,7 @@ class CameraActivityKt : AppCompatActivity() {
                         e.put("frameWidth", bitmap!!.width);
                         e.put("frameHeight", bitmap!!.height);
                         e.put("number", plate.getNumber());
+                        e.put("score", plate.getRecognitionConfidence().toString())
                         platesMap.add(e)
 
                     }

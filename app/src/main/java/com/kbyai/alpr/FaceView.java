@@ -23,6 +23,7 @@ public class FaceView extends View {
     private Context context;
     private Paint rectPaint;
     private Paint textPaint;
+    private Paint textScorePaint;
 
     private Size frameSize;
 
@@ -58,6 +59,13 @@ public class FaceView extends View {
         textPaint.setColor(Color.YELLOW);
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(50);
+
+        textScorePaint = new Paint();
+        textScorePaint.setStyle(Paint.Style.STROKE);
+        textScorePaint.setStrokeWidth(3);
+        textScorePaint.setColor(Color.WHITE);
+        textScorePaint.setAntiAlias(true);
+        textScorePaint.setTextSize(25);
     }
 
     public void setFrameSize(Size frameSize)
@@ -94,6 +102,7 @@ public class FaceView extends View {
 
             for (Map<String, Object> plate : platesMap) {
                 String number = plate.containsKey("number") ? (String) plate.get("number") : "Unknown";
+                String score = plate.containsKey("score") ? (String) plate.get("score") : "";
                 float x1 = plate.containsKey("x1") ? ((Number) plate.get("x1")).floatValue() : 0.0f;
                 float y1 = plate.containsKey("y1") ? ((Number) plate.get("y1")).floatValue() : 0.0f;
                 float x2 = plate.containsKey("x2") ? ((Number) plate.get("x2")).floatValue() : 0.0f;
@@ -109,6 +118,10 @@ public class FaceView extends View {
                 textPaint.setStrokeWidth(2);
                 textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                 canvas.drawText(number, drawX1 + 10, drawY1 - 10, textPaint);
+
+                textPaint.setStrokeWidth(1);
+                textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+                canvas.drawText(score, drawX1 + 10, drawY2 + 30, textScorePaint);
 
                 // Draw rectangle
                 rectPaint.setStrokeWidth(3);
