@@ -40,11 +40,11 @@ class MainActivity : AppCompatActivity() {
         imgView = findViewById<View>(R.id.imageResult) as ImageView
 
         var ret = AlprSdk.setActivation(
-            "hbvQsY6g6rVqVrgZNjC9hqBV6sBCDtiKoaYAnQxm/VioUr+Icbz2wDrJD+hWLsrIkbVnLq0E7zBq\n" +
-                    "ZV0PGk6w9ZX9ivPmU/QHbXT/EOkZR5DHYoDL7Kmh11dm1dNvufndjgB6S0ZYyYSiLlwnbIGaPTA6\n" +
-                    "U4uMs+OtkFTREs+8fvo5qbfCpgaQCdeyFCCVQXTm2rb3GIog16eSIj1wOHuIdxkhEp++GRszKL8o\n" +
-                    "2Bpu2cAJ1067GRhqo0Sa6uy4RdGp5DsHvIYZgnqdF4XVbSsxl6pN6rQuhQiJzkywMen5ECuFYkie\n" +
-                    "jY6RPksi+fbrbVG9UXZpvFfzDsiuVqnQyAaA6g=="
+            "o0KjpoZaeHqarAF6N1qL76CVoJ4oP5L6OQg6pDw2kPXMRxkzrL1hyb8IkiPkAFTaaAOVtvMxgQElsY" + 
+                    "43tza5KZcT9CD+fxEHZvsfvsst/tAMOfq9U+Ypa8sHjQN6QCE5bCjw24CUdXWpRWWtLxRELoCoy38M" + 
+                    "bHzlhlAf6NN7ncof5faY7J1QnHP+Rt2Xw9shRCzDPuEQZm7TeNdVT7QFfvIrIsroHJfa/HIXUdjx6l" +
+                    "wAHc+4Wq3XgU8+bHY5mtq6rMR5Pz/Fu5iqNyfzTBMMMfyyjZNUVa+N90eX5NdARbLofkkK1fN4enBb" + 
+                    "d7tgnlEU7l2tx85BH4hEZGq8dnNmag=="
         )
 
         if (ret == 0) {
